@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATELICK おしらせ</title>
+<style>
+  :root { --bg: #14111c; --panel: #1d1928; --ink: #f1ecf7; --muted: #a79fb8; --gold: #d8b98a; --line: #3a3248; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Yu Gothic UI", "Hiragino Sans", sans-serif; line-height: 1.7; }
+  header { padding: 40px 24px 16px; text-align: center; }
+  .brand { letter-spacing: .4em; color: var(--gold); font-size: 12px; }
+  h1 { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-weight: 300; font-size: 32px; margin: 6px 0 0; }
+  main { max-width: 760px; margin: 0 auto; padding: 0 16px 60px; }
+  #atelick-banners { list-style: none; margin: 24px 0; padding: 0; display: grid; gap: 16px; }
+  #atelick-banners li { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
+  #atelick-banners img, #atelick-banners video { display: block; width: 100%; aspect-ratio: 4 / 1; object-fit: cover; border-radius: 8px; }
+  .howto { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; color: var(--muted); font-size: 14px; }
+  .howto h2 { color: var(--ink); font-size: 16px; margin: 0 0 8px; }
+  code { color: var(--gold); }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">— ATELICK —</div>
+  <h1>おしらせ</h1>
+</header>
+<main>
+
+<!--
+  palmtab は、下の <ul id="atelick-banners"> の中の <li> を上から順番に読んで、
+  設定ウィンドウの上の帯に、順番に出します（6 時間ごとに読み直します）。
+
+  ・1 つのバナー＝1 つの <li>
+  ・<a href="…"> が、押したときに開くページ（BOOTH の商品ページなど。https のページ）
+  ・<img src="…"> が画像（PNG・JPEG・GIF）、<video src="…"> が動画（MP4。音は出ません）
+  ・data-seconds="8" が、出しておく秒数（3〜30 秒。書かなければ、画像は 8 秒・動画は 15 秒）
+  ・大きさは 横：縦 ＝ 4：1（すすめる大きさ 640 × 160。帯ではおよそ 320 × 80 で出ます）
+  ・画像は 3 MB まで、動画は 25 MB まで（15 秒くらいの MP4〔H.264〕がおすすめ）
+  ・お休みにしたいバナーは、HTML のコメントにすると読まれません（下の動画の例のように囲みます）
+  ・画像や動画は、この HTML と同じ場所（images・pv のフォルダ）に置くと、相対の書き方で使えます
+-->
+<ul id="atelick-banners">
+  <li data-seconds="8"><a href="https://booth.pm/"><img src="images/sample_palmtab.png" alt="palmtab"></a></li>
+  <li data-seconds="10"><a href="https://booth.pm/"><img src="images/sample_shop.gif" alt="ATELICK"></a></li>
+  <!-- 動画の例（PV を images と同じように pv のフォルダに置いてから、コメントを外してください）
+  <li data-seconds="15"><a href="https://booth.pm/"><video src="pv/atelick_pv.mp4" muted autoplay loop playsinline></video></a></li>
+  -->
+</ul>
+
+<section class="howto">
+  <h2>使い方</h2>
+  <p>バナーを足すときは、<code>&lt;ul id="atelick-banners"&gt;</code> の中に <code>&lt;li&gt;</code> を 1 行足して、このページを置き直すだけです。palmtab の新しい版を配る必要はありません。</p>
+  <p>このページは、ブラウザで開くとバナーの見本としても見られます。</p>
+</section>
+
+</main>
+</body>
+</html>
